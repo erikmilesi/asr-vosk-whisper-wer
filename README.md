@@ -1,12 +1,15 @@
 # Vosk vs Whisper — Benchmark com WER (Portfólio do Projeto de Inteligência de Comunicações)
 
 Este repositório demonstra, de forma **aberta e reprodutível**, a comparação entre os motores de ASR **Vosk** e **Whisper** usando a métrica **WER (Word Error Rate)** em amostras públicas.  
-Ele faz parte do meu storytelling técnico sobre o desenvolvimento de um **sistema de Inteligência de Comunicações** composto por: **redução de ruído → transcrição de fala → detecção de palavras‑chave**.
+Ele faz parte do meu storytelling técnico sobre o desenvolvimento de um **sistema de Inteligência de Comunicações** composto por: **redução de ruído → transcrição de fala → detecção de palavras-chave**.
 
 > ⚠️ **Nota importante:** O **core proprietário** do meu pipeline (filtros de ruído, KWS avançado, otimizações) não está neste repositório por razões de **patente**. Aqui você encontra apenas o **benchmark de transcrição** com dados públicos.
 
 ---
 
+## 🧱 Estrutura
+
+```text
 asr-vosk-whisper-wer/
 ├─ README.md
 ├─ requirements.txt
@@ -26,10 +29,6 @@ asr-vosk-whisper-wer/
 │  ├─ en/                # (LibriSpeech processado)
 └─ results/
    └─ benchmark_en.csv   # (gerado após rodar benchmark)
-
-```
-
----
 
 ## ⚙️ 1) Ambiente
 ```bash
