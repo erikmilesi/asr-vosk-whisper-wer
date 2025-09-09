@@ -29,7 +29,8 @@ asr-vosk-whisper-wer/
 │  ├─ en/                # (LibriSpeech processado)
 └─ results/
    └─ benchmark_en.csv   # (gerado após rodar benchmark)
----
+```
+
 ## ⚙️ 1) Ambiente
 ```bash
 conda create -n asr python=3.10 -y
