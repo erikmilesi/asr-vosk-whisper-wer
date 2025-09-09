@@ -56,7 +56,6 @@ python scripts\prepare_librispeech_full.py --split test --max_items 50
 python scripts/benchmark_dataset_en.py
 ```
 - Gera `results/benchmark_en.csv` com **engine, arquivo, tempo (s), WER**.
-- Se `samples/en` não existir, rode antes o passo 4.
 
 ## 📊 5) Estatísticas rápidas
 ```bash
