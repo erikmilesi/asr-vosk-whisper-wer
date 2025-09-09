@@ -79,9 +79,6 @@ whisper-base    0.974
 engine
 vosk            0.24
 whisper-base    0.11
-
-→ WER por engine (estatísticas detalhadas):
-...
 ```
 
 ---
