@@ -7,11 +7,14 @@ Ele faz parte do meu storytelling técnico sobre o desenvolvimento de um **siste
 
 ---
 
-## 🧱 Estrutura
-```text
 asr-vosk-whisper-wer/
 ├─ README.md
 ├─ requirements.txt
+├─ src/
+│  ├─ audio_utils.py
+│  ├─ benchmark.py
+│  ├─ vosk_transcriber.py
+│  └─ whisper_transcriber.py
 ├─ scripts/
 │  ├─ get_models.py
 │  ├─ prepare_dataset.py
@@ -20,9 +23,10 @@ asr-vosk-whisper-wer/
 │  └─ show_stats.py
 ├─ models/               # (baixados via get_models.py)
 ├─ samples/
-│  ├─ en/                # (LibriSpeech)
+│  ├─ en/                # (LibriSpeech processado)
 └─ results/
-   └─ benchmark_en.csv   # (gerado)
+   └─ benchmark_en.csv   # (gerado após rodar benchmark)
+
 ```
 
 ---
@@ -66,19 +70,28 @@ Saída esperada (exemplo):
 === Estatísticas de Benchmark ===
 
 → Amostras por engine:
-whisper-base    50
+engine
 vosk            50
+whisper-base    50
+Name: count, dtype: int64
 
 → Tempo médio por engine (s):
 engine
-vosk            0.221
-whisper-base    0.974
+vosk            1.43280
+whisper-base    1.45668
+Name: elapsed_s, dtype: float64
 
 → WER médio por engine:
 engine
-vosk            0.24
-whisper-base    0.11
-```
+vosk            0.103795
+whisper-base    0.056930
+Name: wer, dtype: float64
+
+→ WER por engine (estatísticas detalhadas):
+              count      mean       std  min  25%       50%       75%    max
+engine
+vosk           50.0  0.103795  0.104363  0.0  0.0  0.093074  0.162500  0.500
+whisper-base   50.0  0.056930  0.083774  0.0  0.0  0.011628  0.081731  0.375
 
 ---
 
