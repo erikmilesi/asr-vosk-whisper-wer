@@ -21,7 +21,6 @@ asr-vosk-whisper-wer/
 ├─ models/               # (baixados via get_models.py)
 ├─ samples/
 │  ├─ en/                # (LibriSpeech)
-│  └─ pt/                # (Common Voice)
 └─ results/
    └─ benchmark_en.csv   # (gerado)
 ```
@@ -40,33 +39,26 @@ pip install -r requirements.txt
 ## ⬇️ 2) Baixar modelos Vosk
 ```bash
 python scripts/get_models.py --lang en
-python scripts/get_models.py --lang pt
 ```
 - Os scripts criam pastas em `./models/` (ex.: `models/vosk-en`, `models/vosk-pt`).  
 - Se o link padrão mudar, use `--url` para informar manualmente a URL do modelo Vosk.
 
-## 🎧 3) Preparar dataset de teste leve (EN e PT)
+## 🎧 3) Preparar dataset de teste leve (EN)
 ```bash
-python scripts/prepare_dataset.py --n_en 3 --n_pt 3
+python scripts\prepare_librispeech_full.py --split test --max_items 50
 ```
-- Baixa poucas amostras por **streaming**: `LibriSpeech` (EN) e `Common Voice` (PT).
-- Observação: para Common Voice 17.0, pode ser necessário `huggingface-cli login`. Se não tiver acesso ao CV 17.0, use `--pt_source cv13` ou `--pt_source none` para pular PT.
-
-## 📚 4) Baixar um split completo (opcional)
-```bash
-python scripts/prepare_librispeech_full.py --split test --max_items 50
-```
+- Baixa poucas amostras por **streaming**: `LibriSpeech` (EN).
 - Gera até 50 pares WAV+TXT (normalizados para 16 kHz mono) em `samples/en`.
 - Parâmetros úteis: `--overwrite skip|force`, `--reset` para limpar saídas.
 
-## 🧪 5) Rodar benchmark (EN)
+## 🧪 4) Rodar benchmark (EN)
 ```bash
 python scripts/benchmark_dataset_en.py
 ```
 - Gera `results/benchmark_en.csv` com **engine, arquivo, tempo (s), WER**.
 - Se `samples/en` não existir, rode antes o passo 4.
 
-## 📊 6) Estatísticas rápidas
+## 📊 5) Estatísticas rápidas
 ```bash
 python scripts/show_stats.py
 ```
